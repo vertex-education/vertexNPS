@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='survey.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/vertex.png') }}">
+    <title>NPS Survey</title>
+</head>
+<body class="container">
+
+    <img id="companyLogo" src="{{ url_for('static', filename='images/vertex.png') }}" alt="Company Logo">
+    <div class="surveyContainer col">
+        <h2 id="surveyQuestion">{{ question }}</h2>
+        <div class="ratingButtonsContainer row">
+            <div class="col-md-12">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col">
+                        <div class="notLikelyLabel text-start">Not Very Likely</div>
+                    </div>
+                    <div class="col">
+                        <div class="veryLikelyLabel text-end">Extremely Likely</div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    {% for i in range(11) %}
+                        <button class="ratingButton col " onclick="submitSurvey('{{ i }}')">{{ i }}</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+    var username = "{{ username }}";
+    // Function to initialize default data when the page is loaded
+    function initializeDefaultData() {
+        // Make an AJAX request to the backend to set up the default data
+        fetch('/initialize_default_data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username: username }), // Empty object
+        })
+        .then(response => response.json())
+        .then(data => {
+            // No need to handle the response here
+            // You can implement further logic if needed
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    // Call the initialization function when the page is loaded
+    initializeDefaultData();
+
+    // Function to submit data when the button is clicked
+    function submitSurvey(selectedRating) {
+        // Make an AJAX request to the backend to submit the modified survey data
+        fetch('/submit_rating', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'username': username,
+            },
+            body: JSON.stringify({ username: username, rating: selectedRating }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            window.location.href = '/thankyou'; // Redirect to the thank you page
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    </script>
+
+</body>
+</html>

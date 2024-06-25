@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.display-4 {
+    color: #013765; 
+}
+
+.lead {
+    color: #888; 
+}
+
+#companyLogo {
+    margin-top: 30px;
+    max-width: 20%;
+    height: auto;
+}
+

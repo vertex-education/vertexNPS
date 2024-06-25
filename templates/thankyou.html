@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='thankyou.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/vertex.png') }}">
+    <title>Survey Completed - Thank You</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="text-center mt-5">
+            <img id="companyLogo" src="{{ url_for('static', filename='images/vertex.png') }}" alt="Company Logo">
+            <h1 class="display-4">Thank You for Completing the Survey!</h1>
+            <p class="lead">Your input is valuable to our organization.</p>
+            <p class="lead">Feel free to close this window.</p>
+        </div>
+    </div>
+
+</body>
+</html>

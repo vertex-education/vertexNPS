@@ -1,0 +1,104 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+   
+  
+}
+
+#companyLogo {
+    margin-top: 30px;
+    max-width: 20%;
+    height: auto;
+}
+
+#surveyQuestion {
+    margin: 40px 0;
+}
+
+.ratingButtonsContainer {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.surveyContainer {
+    background-color: #e0e8f0; /* Light blue-gray background */
+    border: 2px ridge #a6bddb; /* Light blue-gray border */
+    border-radius: 10px;
+    padding: 20px; /* Add padding for spacing */
+   margin: 20px auto; /* Center the container and provide spacing from the edges */
+ }
+
+.notLikelyLabel, .veryLikelyLabel {
+    color: #888;
+    font-size: 18px;
+}
+
+.notLikelyLabel {
+    text-align: left;
+}
+
+.veryLikelyLabel {
+    text-align: right;
+}
+
+
+.ratingButtons {
+    margin: 10px 0;
+}
+
+.ratingButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #fff; /* White background */
+    color: #013765; /* Blue text color */
+    border: 1px outset #013765;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s, transform 0.3s;
+    margin-right: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow with darkened opacity */
+}
+@media (max-width: 768px) {
+    .ratingButton {
+        flex-wrap: nowrap;
+        padding: 5px 10px; /* Reduce padding */
+        font-size: 14px; /* Decrease font size */
+    }
+}
+
+.ratingButton:hover {
+    background-color: #f5f5f5; /* Light gray background on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Increase shadow opacity on hover */
+}
+
+.ratingButton:active {
+    border: 1px inset #013765; /* Pressdown effect */
+}
+
+.ratingButton:last-child {
+    margin-right: 0;
+}
+
+
+
+#submitButton {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #c6a156;
+    color: #fff;
+    border: 1px solid #c6a156;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submitButton:hover {
+    background-color: #a08a42;
+}
