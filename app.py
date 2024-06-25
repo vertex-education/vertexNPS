@@ -10,6 +10,9 @@ import pandas as pd
 
 app = Flask(__name__)
 
+# Retrieve the connection string from environment variable
+AZURE_STORAGE_CONNECTION_STRING = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
+
 # Initialize Azure Blob Service Client
 blob_service_client = BlobServiceClient.from_connection_string(AZURE_STORAGE_CONNECTION_STRING)
 container_name = "surveydata"
