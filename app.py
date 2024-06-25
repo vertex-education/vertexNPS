@@ -27,7 +27,11 @@ username_mapping = load_username_mapping()
 def index():
     # Get the username from the request parameter
     machine_name = request.args.get('username', default='Guest') 
-    username = username_mapping.get(machine_name, 'Guest') 
+     # Check if the machine name starts with 'VTX-' and map to actual username if true
+    if machine_name.startswith('VTX-'):
+        username = username_mapping.get(machine_name, 'Guest')
+    else:
+        username = machine_name
     question = "How likely are you to recommend Vertex Education to a friend?"
     return render_template('index.html', question=question, username=username)
 
